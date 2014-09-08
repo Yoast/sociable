@@ -21,7 +21,7 @@
  * @subpackage sociable/includes
  * @author     Your Name <email@example.com>
  */
-class sociable_Loader {
+class Sociable_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

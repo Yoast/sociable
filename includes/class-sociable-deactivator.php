@@ -20,7 +20,7 @@
  * @subpackage sociable/includes
  * @author     Your Name <email@example.com>
  */
-class sociable_Deactivator {
+class Sociable_Deactivator {
 
 	/**
 	 * Short Description. (use period)
