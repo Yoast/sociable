@@ -24,7 +24,7 @@
  * @subpackage sociable/includes
  * @author     Your Name <email@example.com>
  */
-class sociable_i18n {
+class Sociable_i18n {
 
 	/**
 	 * The domain specified for this plugin.
