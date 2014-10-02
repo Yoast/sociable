@@ -9,16 +9,16 @@
  * that starts the plugin.
  *
  * @link              http://example.com
- * @since             1.0.0
+ * @since             5.0.0
  * @package           sociable
  *
  * @wordpress-plugin
  * Plugin Name:       Sociable
  * Plugin URI:        http://example.com/sociable-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
- * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
+ * Version:           5.0.0
+ * Author:            Team Yoast
+ * Author URI:        http://yoast.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       sociable
@@ -59,7 +59,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-sociable.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    5.0.0
  */
 function run_sociable() {
 

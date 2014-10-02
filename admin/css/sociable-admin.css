@@ -2,3 +2,23 @@
  * All of the CSS for your dashboard-specific functionality should be
  * included in this file.
  */
+
+body {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#yoast-sociable-wrapper {
+    display: table;
+    width: auto;
+    max-width: 1150px;
+}
+
+.yoast-sociable-content {
+    display: table-cell;
+    min-width: 850px;
+    height: 500px;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
