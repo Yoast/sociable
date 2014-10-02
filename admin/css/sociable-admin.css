@@ -3,9 +3,11 @@
  * included in this file.
  */
 
-body {
-    color: #ffffff;
-    background-color: #000000;
+h2#yoast_sociable_title {
+    padding: 9px 15px 4px 0;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 29px;
 }
 
 #yoast-sociable-wrapper {
@@ -21,4 +23,33 @@ body {
     margin: 0;
     padding: 0;
     vertical-align: top;
+}
+
+.sociable-form-submit {
+    margin-top: 20px;
+}
+
+.sociable-form-label-left {
+    float: left;
+    width: 250px;
+    margin: 0 0 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: default;
+}
+
+.sociable-form-input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sociable-form-table {
+    display: table-cell;
+}
+
+.sociable-form-description {
+    display: block;
+    float: right;
+    max-width: 325px;
+    color: #999;
 }

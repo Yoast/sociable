@@ -41,15 +41,15 @@ if ( ! class_exists( 'Yoast_Sociable_Options' ) ) {
             $this->options = $this->get_options();
             $this->options = $this->check_options( $this->options );
 
-            $this->plugin_path = plugin_dir_path( GAWP_FILE );
-            $this->plugin_url  = trailingslashit( plugin_dir_url( GAWP_FILE ) );
+            $this->plugin_path = plugin_dir_path( SCWP_FILE );
+            $this->plugin_url  = trailingslashit( plugin_dir_url( SCWP_FILE ) );
 
             if ( false == $this->options ) {
                 add_option( $this->option_name, $this->default_sociable_values() );
                 $this->options = $this->get_options();
             }
 
-            if ( ! isset( $this->options['version'] ) || $this->options['version'] < GAWP_VERSION ) {
+            if ( ! isset( $this->options['version'] ) || $this->options['version'] < SCWP_VERSION ) {
                 $this->upgrade();
             }
         }

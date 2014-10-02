@@ -24,7 +24,7 @@
 
 if ( ! class_exists( 'Sociable_Admin' ) ) {
 
-	class Sociable_Admin {
+	class Sociable_Admin extends Yoast_Sociable_Options {
 
 
 		/**
@@ -45,29 +45,37 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		private $version;
 
+		/**
+		 * Constructor
+		 */
 		public function __construct() {
+			parent::__construct();
 			add_action( 'admin_menu', array( $this, 'create_menu' ) );
+			add_action( 'admin_init', array( $this, 'enqueue_styles' ) );
 
 			if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
-				if ( isset( $_POST['sociable-form-settings'] ) && wp_verify_nonce( $_POST['yoast_sociable_nonce'], 'save_settings' ) ) {
+				if ( ! function_exists( 'wp_verify_nonce' ) ) {
+					require_once( ABSPATH . 'wp-includes/pluggable.php' );
+				}
 
+				if ( isset( $_POST['sociable-form-settings'] ) && wp_verify_nonce( $_POST['yoast_sociable_nonce'], 'save_settings' ) ) {
 
 					// Post submitted and verified with our nonce
 					$this->save_settings( $_POST );
 
-					add_settings_error(
-						'yoast_sociable',
-						'yoast_sociable',
-						__( 'Settings saved!', 'sociable' ),
-						'updated'
-					);
+//					add_settings_error(
+//						'yoast_sociable',
+//						'yoast_sociable',
+//						__( 'Settings saved!', 'sociable-for-wordpress' ),
+//						'updated'
+//					);
 				}
 			}
 		}
 
 		/**
-		 *
+		 * Create the admin menu
 		 */
 		public function create_menu() {
 			// Base 64 encoded SVG image
@@ -80,22 +88,21 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 
 		}
 
-		public function get_options() {
-			$plugin_enabled = get_option( 'yoast_so' );
-		}
-
-
 		/**
 		 * This function saves the settings in the option field and returns a wp success message on success
 		 *
 		 * @param $data
 		 */
 		public function save_settings( $data ) {
+			foreach ( $data as $key => $value ) {
+				$this->options[$key] = $value;
+			}
+
 			// Check checkboxes, on a uncheck they won't be posted to this function
 			$defaults = $this->default_sociable_values();
-			foreach ( $defaults[ $this->option_prefix ] as $key => $value ) {
-				if ( ! isset( $data[ $key ] ) ) {
-					$this->options[ $key ] = $value;
+			foreach ( $defaults[$this->option_prefix] as $key => $value ) {
+				if ( ! isset( $data[$key] ) ) {
+					$this->options[$key] = $value;
 				}
 			}
 
@@ -107,18 +114,13 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 
 		}
 
-		public $options;
-
-		public function save_options( $plugin_enabled ) {
-			$options = array(
-				'enabled' => $plugin_enabled,
-			);
-			update_option( 'yoast_sociable', $options );
-		}
-
+		/**
+		 * Load the Settings page
+		 */
 		public function load_page() {
 			require_once( 'class-sociable-admin.php' );
 			require_once( 'partials/sociable-admin-display.php' );
+
 		}
 
 		/**
@@ -208,49 +210,10 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		}
 
 		/**
-		 * Register the stylesheets for the Dashboard.
-		 *
-		 * @since    5.0.0
+		 * Add the styles in the admin head
 		 */
 		public function enqueue_styles() {
-
-			/**
-			 * This function is provided for demonstration purposes only.
-			 *
-			 * An instance of this class should be passed to the run() function
-			 * defined in Sociable_Admin_Loader as all of the hooks are defined
-			 * in that particular class.
-			 *
-			 * The Sociable_Admin_Loader will then create the relationship
-			 * between the defined hooks and the functions defined in this
-			 * class.
-			 */
-
-			wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/sociable-admin.css', array(), $this->version, 'all' );
-
-		}
-
-		/**
-		 * Register the JavaScript for the dashboard.
-		 *
-		 * @since    5.0.0
-		 */
-		public function enqueue_scripts() {
-
-			/**
-			 * This function is provided for demonstration purposes only.
-			 *
-			 * An instance of this class should be passed to the run() function
-			 * defined in Sociable_Admin_Loader as all of the hooks are defined
-			 * in that particular class.
-			 *
-			 * The Sociable_Admin_Loader will then create the relationship
-			 * between the defined hooks and the functions defined in this
-			 * class.
-			 */
-
-			wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) . 'js/sociable-admin.js', array( 'jquery' ), $this->version, false );
-
+			wp_enqueue_style( 'yoast_sociable_admin', $this->plugin_url . 'admin/css/sociable-admin.css' );
 		}
 
 	}

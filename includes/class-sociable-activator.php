@@ -30,9 +30,6 @@ class Sociable_Activator {
 	 * @since    5.0.0
 	 */
 	public static function activate() {
-		if ( ! get_option( 'yoast_sociable' )) {
-		//	add_option( 'yoast_sociable', '' );
-		}
 	}
 
 }

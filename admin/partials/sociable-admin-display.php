@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a dashboard view for the plugin
  *
@@ -19,11 +18,15 @@ global $yoast_sociable_admin;
 <div id="yoast-sociable-wrapper">
 	<div class="yoast-sociable-content">
 
-		<?php echo $yoast_sociable_admin->create_form( 'settings' ); ?>
+		<h2 id="yoast_sociable_title"><?php echo __( 'Sociable Settings', 'sociable-for-wordpress' ); ?></h2>
 
-		<?php echo $yoast_sociable_admin->input( 'checkbox', 'Enable Sociable', 'enabled', null, null ); ?>
+		<?php
 
-		<?php echo $yoast_sociable_admin->end_form( 'Save changes', 'settings' ); ?>
+		echo $yoast_sociable_admin->create_form( 'settings' );
+
+		echo $yoast_sociable_admin->input( 'checkbox', __('Enable Sociable', 'sociable-for-wordpress' ), 'enabled', null, null );
+
+		echo $yoast_sociable_admin->end_form( 'Save changes', 'settings' ); ?>
 
 	</div>
 
