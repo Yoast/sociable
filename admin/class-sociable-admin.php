@@ -44,7 +44,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 * @var      string $version The current version of this plugin.
 		 */
 		private $version;
-		
+
 		public function __construct() {
 			add_action( 'admin_menu', array( $this, 'create_sociable_menu' ) );
 
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 
 					add_settings_error(
 						'yoast_sociable',
-						'yoast_gsociable',
+						'yoast_sociable',
 						__( 'Settings saved!', 'sociable' ),
 						'updated'
 					);
@@ -71,9 +71,9 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function create_sociable_menu() {
 			add_menu_page( 'Yoast Sociable', 'Sociable', 'manage_options', 'Sociable Settings', array(
-					$this,
-					'load_page'
-				) );
+				$this,
+				'load_page',
+			) );
 		}
 
 		public function get_options() {
