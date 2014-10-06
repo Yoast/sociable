@@ -14,26 +14,30 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function __construct() {
 			parent::__construct();
+			add_action( 'admin_init', array( $this, 'init_settings' ) );
 			add_action( 'admin_menu', array( $this, 'create_menu' ) );
 			add_action( 'admin_init', array( $this, 'enqueue_styles' ) );
+		}
 
+		/**
+		 * Init function for the settings of Sociable
+		 */
+		public function init_settings() {
 			if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
-
 				if ( ! function_exists( 'wp_verify_nonce' ) ) {
 					require_once( ABSPATH . 'wp-includes/pluggable.php' );
 				}
 
 				if ( isset( $_POST['sociable-form-settings'] ) && wp_verify_nonce( $_POST['yoast_sociable_nonce'], 'save_settings' ) ) {
-
 					// Post submitted and verified with our nonce
 					$this->save_settings( $_POST );
 
-//					add_settings_error(
-//						'yoast_sociable',
-//						'yoast_sociable',
-//						__( 'Settings saved!', 'sociable-for-wordpress' ),
-//						'updated'
-//					);
+					add_settings_error(
+						'yoast_sociable',
+						'yoast_sociable',
+						__( 'Settings saved!', 'google-analytics-for-wordpress' ),
+						'updated'
+					);
 				}
 			}
 		}
