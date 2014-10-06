@@ -28,6 +28,8 @@ settings_errors( 'yoast_sociable' );
 
 		echo $yoast_sociable_admin->input( 'checkbox', __( 'Enable Sociable', 'sociable-for-wordpress' ), 'enabled', null, null );
 
+		echo $yoast_sociable_admin->input( 'text', __( 'Active social networks', 'sociable-for-wordpress' ), 'networks', null, null );
+
 		echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' );
 
 		?>
