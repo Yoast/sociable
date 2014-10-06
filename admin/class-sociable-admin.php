@@ -35,7 +35,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 					add_settings_error(
 						'yoast_sociable',
 						'yoast_sociable',
-						__( 'Settings saved!', 'google-analytics-for-wordpress' ),
+						__( 'Settings saved!', 'sociable-for-wordpress' ),
 						'updated'
 					);
 				}

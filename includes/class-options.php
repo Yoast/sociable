@@ -83,7 +83,7 @@ if ( ! class_exists( 'Yoast_Sociable_Options' ) ) {
          * Check if all the options are set, to prevent a notice if debugging is enabled
          * When we have new changes, the settings are saved to the options class
          *
-         * @param $options
+         * @param array $options
          *
          * @return mixed
          */
