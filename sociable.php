@@ -42,7 +42,9 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 // Only require the needed classes
 if ( is_admin() ) {
 	require_once 'admin/class-sociable-admin.php';
-
+}
+else {
+	require_once 'frontend/class-sociable-frontend.php';
 }
 
 
