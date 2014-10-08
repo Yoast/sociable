@@ -13,16 +13,6 @@ if ( ! class_exists( 'Yoast_Sociable_Frontend' ) ) {
         }
 
         /**
-         * Get all active social networks
-         *
-         * @return string with test data
-         */
-        public function get_social_networks() {
-            //Still test data
-            return 'Facebook, Twitter, Pinterest';
-        }
-
-        /**
          * Get view from sociable-frontend-display and return the html
          *
          * @return string
