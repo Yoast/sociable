@@ -45,8 +45,6 @@ class Yoast_Sociable_Admin_Test extends WP_UnitTestCase {
     /**
      * Make a checkbox for a form and check if output is correct
      *
-     * TODO: Test all parameters
-     *
      * @covers Sociable_Admin::input()
      */
     public function test_input_checkbox() {
@@ -61,8 +59,6 @@ class Yoast_Sociable_Admin_Test extends WP_UnitTestCase {
 
     /**
      * Make a text field for a form and check if output is correct
-     *
-     * TODO: Test all parameters
      *
      * @covers Sociable_Admin::input()
      */
