@@ -18,7 +18,7 @@ global $yoast_sociable_admin;
 <div id="yoast-sociable-wrapper">
 	<div class="yoast-sociable-content">
 
-		<h2 id="yoast_sociable_title"><?php echo __( 'Sociable Settings', 'sociable-for-wordpress' ); ?></h2>
+		<h2 id="yoast_sociable_title"><?php _e( 'Sociable Settings', 'sociable-for-wordpress' ); ?></h2>
 
 		<?php
 
