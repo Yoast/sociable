@@ -4,7 +4,7 @@
  * The public-facing functionality of the plugin.
  *
  * @link       http://example.com
- * @since      1.0.0
+ * @since      5.0.0
  *
  * @package    sociable
  * @subpackage sociable/includes
@@ -25,7 +25,7 @@ class Sociable_Public {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    5.0.0
 	 * @access   private
 	 * @var      string    $name    The ID of this plugin.
 	 */
@@ -34,7 +34,7 @@ class Sociable_Public {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    5.0.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +43,7 @@ class Sociable_Public {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
+	 * @since    5.0.0
 	 * @var      string    $name       The name of the plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
@@ -57,7 +57,7 @@ class Sociable_Public {
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since    5.0.0
 	 */
 	public function enqueue_styles() {
 
@@ -80,7 +80,7 @@ class Sociable_Public {
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since    5.0.0
 	 */
 	public function enqueue_scripts() {
 

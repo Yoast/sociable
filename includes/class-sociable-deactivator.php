@@ -4,7 +4,7 @@
  * Fired during plugin deactivation
  *
  * @link       http://example.com
- * @since      1.0.0
+ * @since      5.0.0
  *
  * @package    sociable
  * @subpackage sociable/includes
@@ -15,7 +15,7 @@
  *
  * This class defines all code necessary to run during the plugin's deactivation.
  *
- * @since      1.0.0
+ * @since      5.0.0
  * @package    sociable
  * @subpackage sociable/includes
  * @author     Your Name <email@example.com>
@@ -27,7 +27,7 @@ class Sociable_Deactivator {
 	 *
 	 * Long Description.
 	 *
-	 * @since    1.0.0
+	 * @since    5.0.0
 	 */
 	public static function deactivate() {
 

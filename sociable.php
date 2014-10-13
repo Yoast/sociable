@@ -1,70 +1,52 @@
 <?php
+/*
+Plugin Name: Sociable by Yoast
+Plugin URI:
+Description:
+Author: Team Yoast
+Version: 5.0.0
+Requires at least:
+Author URI: https://yoast.com/
+License: GPL v3
+Text Domain:
+Domain Path:
 
-/**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * Dashboard. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              http://example.com
- * @since             1.0.0
- * @package           sociable
- *
- * @wordpress-plugin
- * Plugin Name:       Sociable
- * Plugin URI:        http://example.com/sociable-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
- * Version:           1.0.0
- * Author:            Your Name or Your Company
- * Author URI:        http://example.com/
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       sociable
- * Domain Path:       /languages
- */
+Sociable for WordPress
+Copyright (C) 2008-2014, Joost de Valk - joost@yoast.com
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+define( 'SCWP_VERSION', '5.0.0' );
+
+define( 'SCWP_FILE', __FILE__ );
+
+define( 'SCWP_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+
+if ( ! class_exists( 'Sociable_Admin' ) ) {
+	require_once 'includes/class-options.php';
+	require_once 'includes/class-sociable.php';
 }
 
-/**
- * The code that runs during plugin activation.
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-sociable-activator.php';
-
-/**
- * The code that runs during plugin deactivation.
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-sociable-deactivator.php';
-
-/** This action is documented in includes/class-sociable-activator.php */
-register_activation_hook( __FILE__, array( 'sociable_Activator', 'activate' ) );
-
-/** This action is documented in includes/class-sociable-deactivator.php */
-register_deactivation_hook( __FILE__, array( 'sociable_Deactivator', 'deactivate' ) );
-
-/**
- * The core plugin class that is used to define internationalization,
- * dashboard-specific hooks, and public-facing site hooks.
- */
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-sociable.php';
-
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-function run_sociable() {
-
-	$plugin = new Sociable();
-	$plugin->run();
-
+// Only require the needed classes
+if ( is_admin() ) {
+	require_once 'admin/class-sociable-admin.php';
 }
-run_sociable();
+else {
+	require_once 'frontend/class-sociable-frontend.php';
+}
+
+
+?>
