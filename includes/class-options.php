@@ -119,6 +119,7 @@ if ( ! class_exists( 'Yoast_Sociable_Options' ) ) {
             return array(
                 $this->option_prefix => array(
                     'enabled' => 0,
+                    'networks' => '',
                 )
             );
         }

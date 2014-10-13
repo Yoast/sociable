@@ -6,7 +6,7 @@
 
 if ( ! class_exists( 'Sociable_Admin' ) ) {
 
-	class Sociable_Admin extends Yoast_Sociable_Options {
+	class Sociable_Admin extends Yoast_Sociable {
 
 
 		/**
