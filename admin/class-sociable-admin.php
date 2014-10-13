@@ -78,11 +78,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 				}
 			}
 
-			if ( $this->update_option( $this->options ) ) {
-				// Success!
-			} else {
-				// Fail..
-			}
+			$this->update_option( $this->options );
 
 		}
 
