@@ -37,6 +37,7 @@ define( 'SCWP_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
 if ( ! class_exists( 'Sociable_Admin' ) ) {
 	require_once 'includes/class-options.php';
+	require_once 'includes/class-sociable.php';
 }
 
 // Only require the needed classes
