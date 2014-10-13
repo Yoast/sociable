@@ -17,6 +17,3 @@ if( false !== getenv( 'WP_DEVELOP_DIR' ) ) {
 } else {
 	require '../../../../tests/phpunit/includes/bootstrap.php';
 }
-
-// include unit test base class
-//require_once dirname( __FILE__ ) . '/framework/class-wpseo-unit-test-case.php';
