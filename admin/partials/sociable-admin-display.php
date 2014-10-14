@@ -35,16 +35,15 @@ settings_errors( 'yoast_sociable' );
 		?>
 
 
-		<div id="active">
+		<ul id="active" >
 			<?php
 			foreach ( $yoast_sociable_admin->get_social_networks() as $key => $network ) {
-				echo '<div id="' . $network . '_' . $key . '">' . $network . '</div>';
+				echo '<li id="' . $network . '_' . $key . '">' . $network . '</li>';
 			} ?>
-		</div>
+		</ul>
 
-		<div id="inactive">
-
-		</div>
+		<ul id="inactive">
+		</ul>
 
 
 	</div>

@@ -1,5 +1,6 @@
 $(function() {
-	$( '#active' ).sortable({
+	$( 'ul#active' ).sortable({
+		connectWith: 'ul',
 
 		update: function( event, ui ) {
 			var postData = $(this).sortable('serialize');
@@ -7,8 +8,8 @@ $(function() {
 		}
 	});
 
-	$( "#inactive" ).sortable({
-		connectWith: "ul"
+	$( 'ul#inactive' ).sortable({
+		connectWith: 'ul'
 	});
 
 });
