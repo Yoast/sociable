@@ -28,7 +28,7 @@ settings_errors( 'yoast_sociable' );
 
 		echo $yoast_sociable_admin->input( 'checkbox', __( 'Enable Sociable', 'sociable-for-wordpress' ), 'enabled', null, null );
 
-		echo $yoast_sociable_admin->input( 'text', __( 'Active social networks', 'sociable-for-wordpress' ), 'networks', null, null );
+		echo $yoast_sociable_admin->input( 'hidden', null, 'networks', null, null );
 
 		echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' );
 
@@ -37,12 +37,18 @@ settings_errors( 'yoast_sociable' );
 
 		<ul id="active" >
 			<?php
-			foreach ( $yoast_sociable_admin->get_social_networks() as $key => $network ) {
+			foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
 				echo '<li id="network-' . $network . '">' . $network . '</li>';
 			} ?>
 		</ul>
 
 		<ul id="inactive">
+			<?php
+			foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
+				echo '<li id="network-' . $network . '">' . $network . '</li>';
+			}
+
+			?>
 		</ul>
 
 

@@ -12,7 +12,7 @@ $(function() {
 			};
 
 			jQuery.post( ajax_object.ajax_url, data, function( response ) {
-				$( '#yoast-sociable-form-text-settings-networks' ) .val( response );
+				$( '#yoast-sociable-form-hidden-settings-networks' ) .val( response );
 			});
 		}
 	});

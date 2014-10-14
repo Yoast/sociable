@@ -220,6 +220,35 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			die();
 		}
 
+		/**
+		 * Load inactive networks and remove active networks from list.
+		 *
+		 * @return array|mixed
+		 */
+		public function get_inactive_networks() {
+			$social_networks = 'email,facebook,linkedin,twitter,google+,pinterest,github';
+
+			$this->options = $this->get_options();
+
+			if ( empty ($this->options['networks']) ) {
+				$inactive_networks = explode( ',', $social_networks );
+			}
+			else {
+				$active_networks = explode ( ',', $this->options['networks'] );
+				$inactive_networks = $social_networks;
+
+				foreach( $active_networks as $active_network ) {
+					$inactive_networks = str_replace( $active_network, '' , $inactive_networks );
+				}
+
+				//Remove any duplicate commas and remove comma from start and end from String
+				$inactive_networks = preg_replace('/,/', ',', trim($inactive_networks, ','));
+
+				$inactive_networks = explode ( ',', $inactive_networks );
+			}
+			return $inactive_networks;
+		}
+
 	}
 
 	global $yoast_sociable_admin;
