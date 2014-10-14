@@ -18,6 +18,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			add_action( 'admin_menu', array( $this, 'create_menu' ) );
 			add_action( 'admin_init', array( $this, 'enqueue_styles' ) );
 			add_action( 'admin_init', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_ajax_networks_string', array( $this, 'active_networks_to_string' ) );
 		}
 
 		/**
@@ -185,10 +186,38 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			wp_enqueue_style( 'yoast_sociable_admin', $this->plugin_url . 'admin/css/sociable-admin.css' );
 		}
 
+		/**
+		 * Add JavaScript files and Ajax call to admin head
+		 */
 		public function enqueue_scripts() {
 			wp_enqueue_script( 'yoast-sociable-admin-jquery', $this->plugin_url . 'admin/js/jquery-1.11.1.min.js' );
 			wp_enqueue_script( 'jquery-ui', $this->plugin_url . 'admin/js/jquery-ui.min.js' );
 			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js' );
+			wp_localize_script( 'yoast-sociable-admin-sociable', 'ajax_object',
+				array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'active_networks' => '' ) );
+		}
+
+		/**
+		 * Get the data from the Ajax call and turn it into a comma separated string
+		 */
+		public function active_networks_to_string() {
+			$networks = $_POST[ 'active_networks' ];
+
+			$searchReplaceArray = array(
+				'network[]=' => '',
+				'&' => ',',
+			);
+
+			$networks = str_replace(
+				array_keys($searchReplaceArray),
+				array_values($searchReplaceArray),
+				$networks
+			);
+
+			echo $networks;
+
+			//If we don't call die(), WordPress will add a '0' at the end of our String
+			die();
 		}
 
 	}

@@ -38,7 +38,7 @@ settings_errors( 'yoast_sociable' );
 		<ul id="active" >
 			<?php
 			foreach ( $yoast_sociable_admin->get_social_networks() as $key => $network ) {
-				echo '<li id="' . $network . '_' . $key . '">' . $network . '</li>';
+				echo '<li id="network-' . $network . '">' . $network . '</li>';
 			} ?>
 		</ul>
 
