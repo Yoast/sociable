@@ -17,6 +17,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			add_action( 'admin_init', array( $this, 'init_settings' ) );
 			add_action( 'admin_menu', array( $this, 'create_menu' ) );
 			add_action( 'admin_init', array( $this, 'enqueue_styles' ) );
+			add_action( 'admin_init', array( $this, 'enqueue_scripts' ) );
 		}
 
 		/**
@@ -182,6 +183,12 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function enqueue_styles() {
 			wp_enqueue_style( 'yoast_sociable_admin', $this->plugin_url . 'admin/css/sociable-admin.css' );
+		}
+
+		public function enqueue_scripts() {
+			wp_enqueue_script( 'yoast-sociable-admin-jquery', $this->plugin_url . 'admin/js/jquery-1.11.1.min.js' );
+			wp_enqueue_script( 'jquery-ui', $this->plugin_url . 'admin/js/jquery-ui.min.js' );
+			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js' );
 		}
 
 	}
