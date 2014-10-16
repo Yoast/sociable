@@ -33,12 +33,18 @@ settings_errors( 'yoast_sociable' );
 		echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' );
 
 		?>
-
-
-		<ul id="active" >
+		<ul id="active" class="rrssb-buttons clearfix">
 			<?php
 			foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
-				echo '<li id="network-' . $network . '">' . $network . '</li>';
+                echo '<li class="' . $network . '" id="network-' . $network . '">';
+                    //Change link to correct social network link
+                    '<a href=#>
+                        <span class="icon">';
+                            //Get svg of correct social network
+                            echo $network;
+                         echo '</span>
+                        <span class="text">' . $network . '</span>
+                    </a></li>';
 			} ?>
 		</ul>
 
