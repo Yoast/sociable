@@ -175,7 +175,6 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 				$input .= '<span class="sociable-form sociable-form-description">' . $description . '</span>';
 				$input .= '</div>';
 			}
-
 			return $input;
 		}
 
@@ -184,6 +183,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function enqueue_styles() {
 			wp_enqueue_style( 'yoast_sociable_admin', $this->plugin_url . 'admin/css/sociable-admin.css' );
+			wp_enqueue_style( 'rrssb', $this->plugin_url . 'admin/css/rrssb.css' );
+			wp_enqueue_style( 'normalize', $this->plugin_url . 'admin/css/normalize.min.css' );
 		}
 
 		/**
@@ -193,6 +194,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			wp_enqueue_script( 'yoast-sociable-admin-jquery', $this->plugin_url . 'admin/js/jquery-1.11.1.min.js' );
 			wp_enqueue_script( 'jquery-ui', $this->plugin_url . 'admin/js/jquery-ui.min.js' );
 			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js' );
+			wp_enqueue_script( 'rrssb', $this->plugin_url . 'admin/js/rrssb.min.js' );
+			wp_enqueue_script( 'modernizr', $this->plugin_url . 'admin/js/modernizr-2.6.2-respond-1.1.0.min.js' );
 			wp_localize_script( 'yoast-sociable-admin-sociable', 'ajax_object',
 				array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'active_networks' => '' ) );
 		}
@@ -248,7 +251,6 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			}
 			return $inactive_networks;
 		}
-
 	}
 
 	global $yoast_sociable_admin;
