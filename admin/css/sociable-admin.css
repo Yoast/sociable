@@ -54,16 +54,7 @@ h2#yoast_sociable_title {
     color: #999;
 }
 
-#active, #inactive {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    float: left;
-    margin-right: 10px;
-    background: #eee;
-    padding: 5px;
-    width: 143px;
+#container {
+    width: 500px;
+
 }
-
-#active li, #inactive li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }
-
