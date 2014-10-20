@@ -33,19 +33,24 @@ settings_errors( 'yoast_sociable' );
 		echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' );
 
 		?>
-		<ul id="active" class="rrssb-buttons clearfix">
+	</div>
+
+</div>
+
+		<ul class="rrssb-buttons clearfix" id="active">
 			<?php
+			
 			foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
-                echo '<li class="' . $network . '" id="network-' . $network . '">';
-                    //Change link to correct social network link
-                    '<a href=#>
-                        <span class="icon">';
-                            //Get svg of correct social network
-                            echo $network;
-                         echo '</span>
-                        <span class="text">' . $network . '</span>
-                    </a></li>';
+				echo '<li class="' . $network['name'] . '" id="' . $network ['name'] . '">';
+				echo '<a href="#">';
+				echo '<span class="icon">';
+				echo $network['svg'];
+				echo '</span>';
+				echo '<span class="text">' . $network['name'] . '</span>';
+				echo '</a>';
+				echo '</li>';
 			} ?>
+
 		</ul>
 
 		<ul id="inactive">
@@ -53,11 +58,10 @@ settings_errors( 'yoast_sociable' );
 			foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
 				echo '<li id="network-' . $network . '">' . $network . '</li>';
 			}
-
 			?>
 		</ul>
 
 
-	</div>
 
-</div>
+
+
