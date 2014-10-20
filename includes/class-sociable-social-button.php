@@ -1,15 +1,15 @@
 <?php
 
-abstract class Yoast_Sociable_Social_Button {
+interface Yoast_Sociable_Social_Button {
 
 	/**
 	 * @return String
 	 */
-	abstract protected function getSVG();
+	public function getSVG();
 
 	/**
 	 * @return String
 	 */
-	abstract protected function getLink();
+	public function getLink();
 
 }
