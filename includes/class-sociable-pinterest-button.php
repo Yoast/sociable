@@ -3,6 +3,8 @@
 
 class Yoast_Sociable_Pinterest_Button implements Yoast_Sociable_Social_Button {
 
+
+
     /**
      * Get SVG code for Pinterest button
      *
@@ -26,7 +28,7 @@ class Yoast_Sociable_Pinterest_Button implements Yoast_Sociable_Social_Button {
      * @return String
      */
     public function getLink() {
-        return 'http://pinterest.com/pin/create/button/?url=http://yoast.com&amp;media=http://yoast.com&amp;description=Test';
+        return 'mailto:?subject=Check%20out%20how%20ridiculously%20responsive%20these%20social%20buttons%20are&amp;body=http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%2Findex.html';
     }
     
 }
