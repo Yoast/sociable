@@ -24,9 +24,7 @@ if ( ! class_exists( 'Yoast_Sociable' ) ) {
 
                 foreach ( $social_networks as $position => $social_network ) {
 
-                    $network_class = 'Yoast_Sociable_' . ucwords($social_network) . '_Button';
-
-                    $network = new $network_class;
+                    $network = $this->new_social_network( $social_network );
 
                     $social_networks[ $position ] = array(
                         'name' => $social_network,
@@ -36,6 +34,17 @@ if ( ! class_exists( 'Yoast_Sociable' ) ) {
             }
 
             return $social_networks;
+        }
+
+        /**
+         * @param String $network_name
+         * Factory method for producing a social button child
+         *
+         * @return object
+         */
+        private function new_social_network( $network_name ) {
+            $network_class = 'Yoast_Sociable_' . ucwords($network_name) . '_Button';
+            return new $network_class;
         }
 
     }
