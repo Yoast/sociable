@@ -3,12 +3,8 @@
 if ( ! class_exists( 'Yoast_Sociable' ) ) {
     class Yoast_Sociable extends Yoast_Sociable_Options {
 
-        public function __construct() {
-            parent::__construct();
-        }
-
         /**
-         * Return all active social networks
+         * Return array with name, svg and link of all active social networks
          *
          * @return array
          */
@@ -29,6 +25,7 @@ if ( ! class_exists( 'Yoast_Sociable' ) ) {
                     $social_networks[ $position ] = array(
                         'name' => $social_network,
                         'svg' => $network->getSVG(),
+                        'link' => $network->getLink(),
                     );
                 }
             }
