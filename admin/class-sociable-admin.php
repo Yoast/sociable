@@ -228,7 +228,7 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 * @return array|mixed
 		 */
 		public function get_inactive_networks() {
-			$social_networks = 'email,facebook,linkedin,twitter,google+,pinterest,github';
+			$social_networks = 'email,facebook,linkedin,twitter,googleplus,pinterest,github';
 
 			$this->options = $this->get_options();
 
