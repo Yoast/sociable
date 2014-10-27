@@ -41,7 +41,7 @@ settings_errors( 'yoast_sociable' );
 			<?php
 			
 			foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
-				echo '<li class="' . $network['name'] . '" id="' . $network ['name'] . '">';
+				echo '<li class="' . $network['name'] . '" id="network-' . $network ['name'] . '">';
 				echo '<a href="#">';
 				echo '<span class="icon">';
 				echo $network['svg'];
