@@ -39,7 +39,7 @@ if ( ! class_exists( 'Yoast_Sociable' ) ) {
          *
          * @return object
          */
-        private function new_social_network( $network_name ) {
+        public function new_social_network( $network_name ) {
             $network_class = 'Yoast_Sociable_' . ucwords($network_name) . '_Button';
             return new $network_class;
         }

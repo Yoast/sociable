@@ -38,6 +38,7 @@ settings_errors( 'yoast_sociable' );
 </div>
 
 		<ul class="rrssb-buttons clearfix" id="active">
+			<h2>Active</h2>
 			<?php
 			
 			foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
@@ -53,12 +54,19 @@ settings_errors( 'yoast_sociable' );
 
 		</ul>
 
-		<ul id="inactive">
+		<ul class="rrssb-buttons clearfix" id="inactive">
+			<h2>Inactive</h2>
 			<?php
 			foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
-				echo '<li id="network-' . $network . '">' . $network . '</li>';
-			}
-			?>
+				echo '<li class="' . $network['name'] . '" id="network-' . $network['name'] . '">';
+				echo '<a href="#">';
+				echo '<span class="icon">';
+				echo $network['svg'];
+				echo '</span>';
+				echo '<span class="text">' . $network['name'] . '</span>';
+				echo '</a>';
+				echo '</li>';
+			} ?>
 		</ul>
 
 

@@ -35,6 +35,9 @@ define( 'SCWP_FILE', __FILE__ );
 
 define( 'SCWP_URL', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
+/**
+ * TODO: Create autoloader for classes to reduce double code
+ */
 if ( ! class_exists( 'Sociable_Admin' ) ) {
 	require_once 'includes/class-options.php';
 	require_once 'includes/class-sociable.php';

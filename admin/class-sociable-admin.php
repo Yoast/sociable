@@ -244,9 +244,18 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 				}
 
 				//Remove any duplicate commas and remove comma from start and end from String
-				$inactive_networks = preg_replace('/,/', ',', trim($inactive_networks, ','));
+				$inactive_networks = preg_replace( '/,+/', ',', trim( $inactive_networks, ',' ) );
 
 				$inactive_networks = explode ( ',', $inactive_networks );
+			}
+
+			foreach ( $inactive_networks as $position => $inactive_network ) {
+					$network = $this->new_social_network( $inactive_network );
+
+					$inactive_networks[ $position ] = array(
+						'name' => $inactive_network,
+						'svg' => $network->getSVG(),
+					);
 			}
 			return $inactive_networks;
 		}
