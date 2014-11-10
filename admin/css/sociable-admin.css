@@ -18,7 +18,7 @@ h2#yoast_sociable_title {
 
 .yoast-sociable-content {
     display: table-cell;
-    min-width: 850px;
+    width: 1150px;
     height: 500px;
     margin: 0;
     padding: 0;
@@ -56,5 +56,26 @@ h2#yoast_sociable_title {
 
 #container {
     width: 500px;
+}
 
+#sociable-form-networks {
+
+}
+
+.test {
+    width: 100px;
+}
+
+#inactive-networks {
+    height: 36px;
+}
+
+#active-networks {
+    height: 36px;
+}
+
+.ui-state-highlight {
+    width: 100px;
+    height: 36px;
+    border: 1px solid #000000;
 }

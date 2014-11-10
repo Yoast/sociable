@@ -30,45 +30,44 @@ settings_errors( 'yoast_sociable' );
 
 		echo $yoast_sociable_admin->input( 'hidden', null, 'networks', null, null );
 
-		echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' );
-
 		?>
-	</div>
 
+		<div class="sociable-form-networks">
+			<div id="active-networks">
+				<ul class="rrssb-buttons clearfix" id="active">
+					<?php
+					foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
+						echo '<li class="' . $network['name'] . '" id="network-' . $network ['name'] . '">';
+						echo '<span class="icon">';
+						echo $network['svg'];
+						echo '</span>';
+						echo '<span class="text">' . $network['name'] . '</span>';
+						echo '</li>';
+					} ?>
+				</ul>
+			</div>
+		</div>
+
+		<div class="sociable-form-networks">
+			<div id="inactive-networks">
+				<ul class="rrssb-buttons clearfix" id="inactive">
+					<?php
+					foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
+						echo '<li class="' . $network['name'] . '" id="network-' . $network['name'] . '">';
+						echo '<span class="icon">';
+						echo $network['svg'];
+						echo '</span>';
+						echo '<span class="text">' . $network['name'] . '</span>';
+						echo '</li>';
+					} ?>
+				</ul>
+			</div>
+		</div>
+
+		<?php echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' ); ?>
 </div>
 
-		<ul class="rrssb-buttons clearfix" id="active">
-			<h2>Active</h2>
-			<?php
-			
-			foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
-				echo '<li class="' . $network['name'] . '" id="network-' . $network ['name'] . '">';
-				echo '<a href="#">';
-				echo '<span class="icon">';
-				echo $network['svg'];
-				echo '</span>';
-				echo '<span class="text">' . $network['name'] . '</span>';
-				echo '</a>';
-				echo '</li>';
-			} ?>
-
-		</ul>
-
-		<ul class="rrssb-buttons clearfix" id="inactive">
-			<h2>Inactive</h2>
-			<?php
-			foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
-				echo '<li class="' . $network['name'] . '" id="network-' . $network['name'] . '">';
-				echo '<a href="#">';
-				echo '<span class="icon">';
-				echo $network['svg'];
-				echo '</span>';
-				echo '<span class="text">' . $network['name'] . '</span>';
-				echo '</a>';
-				echo '</li>';
-			} ?>
-		</ul>
-
+</div>
 
 
 
