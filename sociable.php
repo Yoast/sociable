@@ -69,6 +69,3 @@ if ( is_admin() ) {
 else {
 	require_once 'frontend/class-sociable-frontend.php';
 }
-
-
-?>
