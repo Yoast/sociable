@@ -12,7 +12,8 @@ $(function() {
 
 			var data = {
 				'action': 'networks_string',
-				'active_networks': networks
+				'active_networks': networks,
+				'wp-nonce': jQuery('#sociable-wp-nonce').val()
 			};
 
 			jQuery.post( ajax_object.ajax_url, data, function( response ) {

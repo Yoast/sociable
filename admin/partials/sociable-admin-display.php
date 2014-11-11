@@ -28,9 +28,11 @@ global $yoast_sociable_admin;
 
 		echo $yoast_sociable_admin->input( 'checkbox', __( 'Enable Sociable', 'sociable-for-wordpress' ), 'enabled', null, null );
 
-		echo $yoast_sociable_admin->input( 'hidden', null, 'networks', null, null );
+		echo $yoast_sociable_admin->input ( 'hidden', null, 'networks', null, null );
 
 		?>
+		<input type="hidden" name="nonce" id="sociable-wp-nonce" value="<?php echo wp_create_nonce( 'yoast_sociable_ajax' ); ?>">
+
 
 		<label class="sociable-form-label-left"><?php _e( 'Pick Your Networks:', 'sociable-for-wordpress' ); ?></label>
 
