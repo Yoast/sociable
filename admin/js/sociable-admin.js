@@ -3,7 +3,7 @@ $(function() {
 	/**
 	 * Make active network box sortable and give it a placeholder. Copy the active networks to a hidden form to save this when form is submitted
 	 */
-	$( 'ul#active').sortable({
+	$( 'ul#sociable-admin-active-list').sortable({
 		connectWith: 'ul',
 		placeholder: 'network-placeholder',
 
@@ -24,7 +24,7 @@ $(function() {
 	/**
 	 * Make inactive network box sortable and give it a placeholder.
 	 */
-	$( 'ul#inactive').sortable({
+	$( 'ul#sociable-admin-inactive-list').sortable({
 		connectWith: 'ul',
 		placeholder: 'network-placeholder'
 	});

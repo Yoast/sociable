@@ -22,7 +22,7 @@ global $yoast_sociable_admin;
 
 		<?php
 
-settings_errors( 'yoast_sociable' );
+		settings_errors( 'yoast_sociable' );
 
 		echo $yoast_sociable_admin->create_form( 'settings' );
 
@@ -31,42 +31,44 @@ settings_errors( 'yoast_sociable' );
 		echo $yoast_sociable_admin->input( 'hidden', null, 'networks', null, null );
 
 		?>
-<!--				<ul class="rrssb-buttons clearfix" id="active">-->
-		<label class="sociable-form-label-networks">Active Networks:</label>
-				<ul id="active">
+
+		<label class="sociable-form-label-left"><?php _e( 'Pick Your Networks:', 'sociable-for-wordpress' ); ?></label>
+
+			<div class="sociable-admin-network-box">
+				<label class="sociable-form-label-networks"><?php _e( 'Active Networks', 'sociable-for-wordpress' ); ?></label>
+				<ul id="sociable-admin-active-list">
 
 					<?php
 					foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
-						echo '<li class="' . $network['name'] . '" id="network-' . $network ['name'] . '">';
-						echo '<a href="#">';
-						echo '<span class="icon">';
+						echo '<li class="sociable-admin-network-icons" id="network-' . $network ['name'] . '">';
+						echo '<span class="sociable-admin-network-icon">';
 						echo $network['svg'];
 						echo '</span>';
-						echo '<span class="text">' . $network['name'] . '</span>';
-						echo '</a>';
+						echo '<span class="sociable-admin-network-text">' . $network['name'] . '</span>';
 						echo '</li>';
 					} ?>
 				</ul>
-<!--				<ul class="rrssb-buttons clearfix" id="inactive">-->
-		<label class="sociable-form-label-networks">Inactive Networks:</label>
-				<ul id="inactive">
+			</div>
+			<div class="sociable-admin-network-box">
+				<label class="sociable-form-label-networks"><?php _e( 'Inactive Networks', 'sociable-for-wordpress' ); ?></label>
+				<ul id="sociable-admin-inactive-list">
 
 					<?php
 					foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
-						echo '<li class="' . $network['name'] . '" id="network-' . $network['name'] . '">';
-						echo '<a href="#">';
-						//echo '<span class="icon">';
+						echo '<li class="sociable-admin-network-icons" id="network-' . $network['name'] . '">';
+						echo '<span class="sociable-admin-network-icon">';
 						echo $network['svg'];
-						//echo '</span>';
-						echo '<span class="text">' . $network['name'] . '</span>';
-						echo '</a>';
+						echo '</span>';
+						echo '<span class="sociable-admin-network-text">' . $network['name'] . '</span>';
 						echo '</li>';
 					} ?>
 				</ul>
+			</div>
+
 		<div class="clear"></div>
 
 		<?php echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' ); ?>
-</div>
+	</div>
 
 </div>
 
