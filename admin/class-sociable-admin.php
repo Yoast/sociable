@@ -90,7 +90,6 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		public function load_page() {
 			require_once( 'class-sociable-admin.php' );
 			require_once( 'partials/sociable-admin-display.php' );
-
 		}
 
 		/**
@@ -183,8 +182,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function enqueue_styles() {
 			wp_enqueue_style( 'yoast_sociable_admin', $this->plugin_url . 'admin/css/sociable-admin.css' );
-			wp_enqueue_style( 'normalize', $this->plugin_url . 'admin/css/normalize.min.css' );
-			wp_enqueue_style( 'rrssb', $this->plugin_url . 'admin/css/rrssb.css' );
+			wp_enqueue_style( 'yoast_sociable_normalize', $this->plugin_url . 'admin/css/normalize.min.css' );
+			wp_enqueue_style( 'yoast_sociable_rrssb', $this->plugin_url . 'admin/css/rrssb.css' );
 		}
 
 		/**
@@ -192,8 +191,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function enqueue_scripts() {
 			wp_enqueue_script( 'yoast-sociable-admin-jquery', $this->plugin_url . 'admin/js/jquery-1.11.1.min.js' );
-			wp_enqueue_script( 'jquery-ui', $this->plugin_url . 'admin/js/jquery-ui.min.js' );
-			wp_enqueue_script( 'rrssb', $this->plugin_url . 'admin/js/rrssb.js' );
+			wp_enqueue_script( 'yoast_sociable_jquery-ui', $this->plugin_url . 'admin/js/jquery-ui.min.js' );
+			wp_enqueue_script( 'yoast_sociable_rrssb', $this->plugin_url . 'admin/js/rrssb.js' );
 			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js' );
 			wp_localize_script( 'yoast-sociable-admin-sociable', 'ajax_object',
 				array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'active_networks' => '' ) );
