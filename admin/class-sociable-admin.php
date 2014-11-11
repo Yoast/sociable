@@ -247,6 +247,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 				$inactive_networks = preg_replace( '/,+/', ',', trim( $inactive_networks, ',' ) );
 
 				$inactive_networks = explode ( ',', $inactive_networks );
+
+				$inactive_networks = array_filter( $inactive_networks, 'strlen' );
 			}
 
 			foreach ( $inactive_networks as $position => $inactive_network ) {
