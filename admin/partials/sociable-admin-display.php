@@ -31,38 +31,39 @@ settings_errors( 'yoast_sociable' );
 		echo $yoast_sociable_admin->input( 'hidden', null, 'networks', null, null );
 
 		?>
+<!--				<ul class="rrssb-buttons clearfix" id="active">-->
+		<label class="sociable-form-label-networks">Active Networks:</label>
+				<ul id="active">
 
-		<div class="sociable-form-networks">
-			<div id="active-networks">
-				<ul class="rrssb-buttons clearfix" id="active">
 					<?php
 					foreach ( $yoast_sociable_admin->get_social_networks() as $network ) {
 						echo '<li class="' . $network['name'] . '" id="network-' . $network ['name'] . '">';
+						echo '<a href="#">';
 						echo '<span class="icon">';
 						echo $network['svg'];
 						echo '</span>';
 						echo '<span class="text">' . $network['name'] . '</span>';
+						echo '</a>';
 						echo '</li>';
 					} ?>
 				</ul>
-			</div>
-		</div>
+<!--				<ul class="rrssb-buttons clearfix" id="inactive">-->
+		<label class="sociable-form-label-networks">Inactive Networks:</label>
+				<ul id="inactive">
 
-		<div class="sociable-form-networks">
-			<div id="inactive-networks">
-				<ul class="rrssb-buttons clearfix" id="inactive">
 					<?php
 					foreach ( $yoast_sociable_admin->get_inactive_networks() as $network ) {
 						echo '<li class="' . $network['name'] . '" id="network-' . $network['name'] . '">';
-						echo '<span class="icon">';
+						echo '<a href="#">';
+						//echo '<span class="icon">';
 						echo $network['svg'];
-						echo '</span>';
+						//echo '</span>';
 						echo '<span class="text">' . $network['name'] . '</span>';
+						echo '</a>';
 						echo '</li>';
 					} ?>
 				</ul>
-			</div>
-		</div>
+		<div class="clear"></div>
 
 		<?php echo $yoast_sociable_admin->end_form( __( 'Save changes', 'sociable-for-wordpress' ), 'settings' ); ?>
 </div>

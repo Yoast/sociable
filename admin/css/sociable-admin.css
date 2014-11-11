@@ -38,6 +38,15 @@ h2#yoast_sociable_title {
     cursor: default;
 }
 
+.sociable-form-label-networks {
+    float: left;
+    width: 150px;
+    margin: 0 0 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: default;
+}
+
 .sociable-form-input {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -54,28 +63,23 @@ h2#yoast_sociable_title {
     color: #999;
 }
 
-#container {
-    width: 500px;
+.network-placeholder {
+    border: 1px dashed #999999;
+    height: 34px;
 }
 
-#sociable-form-networks {
 
+#active, #inactive {
+    list-style-type: none;
+    float: left;
+    border: 1px solid #999999;
+    width: 150px;
+    margin-top: 0px;
+    margin-right: 25px;
+    padding: 5px;
 }
 
-.test {
-    width: 100px;
+.clear {
+    clear: both;
 }
 
-#inactive-networks {
-    height: 36px;
-}
-
-#active-networks {
-    height: 36px;
-}
-
-.ui-state-highlight {
-    width: 100px;
-    height: 36px;
-    border: 1px solid #000000;
-}
