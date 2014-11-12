@@ -72,5 +72,53 @@ class Yoast_Sociable_Admin_Test extends WP_UnitTestCase {
         $this->assertEquals( $output, $expected );
     }
 
+    /**
+     * Make a hidden field for a form and check if output is correct
+     *
+     * @covers Sociable_Admin::input()
+     */
+    public function test_hidden_text() {
+        $output = $this->class_instance->input( 'hidden', null, 'networks', null, null );
+
+        $expected = '<div class="sociable-form sociable-form-input">';
+        $expected .= '<input type="hidden" class="sociable-form sociable-form-hidden" id="yoast-sociable-form-hidden-phpunit-networks" name="networks" value="" /></div>';
+
+        $this->assertEquals( $output, $expected );
+    }
+
+    /**
+     * Test if get_inactive_networks contain social network names we specified
+     *
+     * @covers Sociable_Admin::get_inactive_networks()
+     */
+    public function test_get_inactive_networks() {
+        $output = $this->class_instance->get_inactive_networks();
+
+        $expected_values = array(
+            'email','facebook','linkedin','twitter','googleplus','pinterest','tumblr',
+        );
+
+        foreach ( $output as $value ) {
+            $this->assertContains( $value['name'], $expected_values );
+        }
+    }
+
+    /**
+     * 
+     *
+     * @covers Sociable_Admin::active_networks_to_string()
+     */
+//    public function test_active_networks_to_string() {
+//        $_POST['active_networks'] = 'network[]=twitter&network[]=linkedin&network[]=googleplus&network[]=pinterest';
+//
+//        $_POST['wp-nonce'] = wp_create_nonce('yoast_sociable_ajax');
+//
+//        $output = $this->class_instance->active_networks_to_string();
+//        $expected = 'twitter,linkedin,googleplus,pinterest';
+//
+//        $this->assertEquals( $output, $expected );
+//    }
+
+
 }
 ?>

@@ -1,32 +1,32 @@
-(function( $ ) {
-	'use strict';
+jQuery(function() {
 
 	/**
-	 * All of the code for your Dashboard-specific JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note that this assume you're going to use jQuery, so it prepares
-	 * the $ function reference to be used within the scope of this
-	 * function.
-	 *
-	 * From here, you're able to define handlers for when the DOM is
-	 * ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * Or when the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and so on.
-	 *
-	 * Remember that ideally, we should not attach any more than a single DOM-ready or window-load handler
-	 * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
-	 * be doing this, we should try to minimize doing that in our own work.
+	 * Make active network box sortable and give it a placeholder. Copy the active networks to a hidden form to save this when form is submitted
 	 */
+	jQuery( 'ul#sociable-admin-active-list').sortable({
+		connectWith: 'ul',
+		placeholder: 'network-placeholder',
 
-})( jQuery );
+		deactivate: function( event, ui ) {
+			var networks = jQuery(this).sortable('serialize');
+
+			var data = {
+				'action': 'networks_string',
+				'active_networks': networks,
+				'wp-nonce': jQuery('#sociable-wp-nonce').val()
+			};
+
+			jQuery.post( ajax_object.ajax_url, data, function( response ) {
+				jQuery( '#yoast-sociable-form-hidden-settings-networks' ) .val( response );
+			});
+		}
+	});
+
+	/**
+	 * Make inactive network box sortable and give it a placeholder.
+	 */
+	jQuery( 'ul#sociable-admin-inactive-list').sortable({
+		connectWith: 'ul',
+		placeholder: 'network-placeholder'
+	});
+});

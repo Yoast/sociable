@@ -18,7 +18,7 @@ h2#yoast_sociable_title {
 
 .yoast-sociable-content {
     display: table-cell;
-    min-width: 850px;
+    width: 1150px;
     height: 500px;
     margin: 0;
     padding: 0;
@@ -38,6 +38,14 @@ h2#yoast_sociable_title {
     cursor: default;
 }
 
+.sociable-form-label-networks {
+    float: left;
+    margin: 0 0 0 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: default;
+}
+
 .sociable-form-input {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -52,4 +60,53 @@ h2#yoast_sociable_title {
     float: right;
     max-width: 325px;
     color: #999;
+}
+
+.network-placeholder {
+    border: 1px dashed #999999;
+    height: 34px;
+}
+
+
+#sociable-admin-active-list, #sociable-admin-inactive-list {
+    list-style-type: none;
+    float: left;
+    border: 1px solid #999999;
+    width: 150px;
+    margin-top: 0px;
+    margin-right: 25px;
+    padding: 5px 5px 0px 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.sociable-admin-network-icons {
+    background-color: #999999;
+    height: 35px;
+    display: inline-block;
+    width: 140px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.sociable-admin-network-icon {
+    fill: #eeeeee;
+}
+
+.sociable-admin-network-text {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #eeeeee;
+}
+
+.sociable-admin-network-box {
+    float: left;
+    width: 200px;
+    padding-top: 15px;
 }

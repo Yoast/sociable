@@ -17,6 +17,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 			add_action( 'admin_init', array( $this, 'init_settings' ) );
 			add_action( 'admin_menu', array( $this, 'create_menu' ) );
 			add_action( 'admin_init', array( $this, 'enqueue_styles' ) );
+			add_action( 'admin_init', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_ajax_networks_string', array( $this, 'active_networks_to_string' ) );
 		}
 
 		/**
@@ -88,7 +90,6 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		public function load_page() {
 			require_once( 'class-sociable-admin.php' );
 			require_once( 'partials/sociable-admin-display.php' );
-
 		}
 
 		/**
@@ -173,7 +174,6 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 				$input .= '<span class="sociable-form sociable-form-description">' . $description . '</span>';
 				$input .= '</div>';
 			}
-
 			return $input;
 		}
 
@@ -182,8 +182,72 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 */
 		public function enqueue_styles() {
 			wp_enqueue_style( 'yoast_sociable_admin', $this->plugin_url . 'admin/css/sociable-admin.css' );
+			wp_enqueue_style( 'yoast_sociable_normalize', $this->plugin_url . 'admin/css/normalize.min.css' );
+			wp_enqueue_style( 'yoast_sociable_rrssb', $this->plugin_url . 'admin/css/rrssb.css' );
 		}
 
+		/**
+		 * Add JavaScript files and Ajax call to admin head
+		 */
+		public function enqueue_scripts() {
+			wp_enqueue_script( 'yoast_sociable_rrssb', $this->plugin_url . 'admin/js/rrssb.js', array( 'jquery', 'jquery-ui-core', ) );
+			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', ) );
+			wp_localize_script( 'yoast-sociable-admin-sociable', 'ajax_object',
+				array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'active_networks' => '' ) );
+		}
+
+		/**
+		 * Get the data from the Ajax call and turn it into a comma separated string
+		 */
+		public function active_networks_to_string() {
+			if ( wp_verify_nonce( $_POST['wp-nonce'], 'yoast_sociable_ajax' )  ) {
+
+				$networks = $_POST['active_networks'];
+
+				$search_replace_array = array(
+					'network[]=' => '',
+					'&'          => ',',
+				);
+
+				$networks = str_replace(
+					array_keys( $search_replace_array ),
+					array_values( $search_replace_array ),
+					$networks
+				);
+
+				echo $networks;
+			}
+
+			//If we don't call die(), WordPress will add a '0' at the end of our String
+			die();
+		}
+
+		/**
+		 * Load inactive networks and remove active networks from list.
+		 *
+		 * @return array|mixed
+		 */
+		public function get_inactive_networks() {
+			$inactive_networks = array('email', 'facebook', 'linkedin', 'twitter', 'googleplus', 'pinterest', 'tumblr');
+
+			$this->options = $this->get_options();
+
+			if ( ! empty ($this->options['networks']) ) {
+				$active_networks = explode ( ',', $this->options['networks'] );
+
+				$inactive_networks = array_diff( $inactive_networks, $active_networks );
+			}
+
+			foreach ( $inactive_networks as $position => $inactive_network ) {
+					$network = $this->new_social_network( $inactive_network );
+
+					$inactive_networks[ $position ] = array(
+						'name' => $inactive_network,
+						'svg' => $network->getSVG(),
+					);
+			}
+			return $inactive_networks;
+		}
 	}
 
 	global $yoast_sociable_admin;

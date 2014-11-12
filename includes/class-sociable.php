@@ -3,12 +3,8 @@
 if ( ! class_exists( 'Yoast_Sociable' ) ) {
     class Yoast_Sociable extends Yoast_Sociable_Options {
 
-        public function __construct() {
-            parent::__construct();
-        }
-
         /**
-         * Return all active social networks
+         * Return array with name, svg and link of all active social networks
          *
          * @return array
          */
@@ -23,15 +19,29 @@ if ( ! class_exists( 'Yoast_Sociable' ) ) {
                 $social_networks = explode( ',', $networks );
 
                 foreach ( $social_networks as $position => $social_network ) {
-                    //For now, only get name
-                    $social_networks[ $position ] = $social_network;
 
-                    //To do: call social network class for each network and get link and SVG icon from class - add this to array
+                    $network = $this->new_social_network( $social_network );
 
+                    $social_networks[ $position ] = array(
+                        'name' => $social_network,
+                        'svg' => $network->getSVG(),
+                        'link' => $network->getLink(),
+                    );
                 }
             }
 
             return $social_networks;
+        }
+
+        /**
+         * @param String $network_name
+         * Factory method for producing a social button child
+         *
+         * @return object
+         */
+        public function new_social_network( $network_name ) {
+            $network_class = 'Yoast_Sociable_' . ucwords($network_name) . '_Button';
+            return new $network_class;
         }
 
     }
