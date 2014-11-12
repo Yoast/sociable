@@ -204,14 +204,14 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 
 				$networks = $_POST['active_networks'];
 
-				$searchReplaceArray = array(
+				$search_replace_array = array(
 					'network[]=' => '',
 					'&'          => ',',
 				);
 
 				$networks = str_replace(
-					array_keys( $searchReplaceArray ),
-					array_values( $searchReplaceArray ),
+					array_keys( $search_replace_array ),
+					array_values( $search_replace_array ),
 					$networks
 				);
 
