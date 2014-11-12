@@ -8,7 +8,7 @@ jQuery(function() {
 		placeholder: 'network-placeholder',
 
 		deactivate: function( event, ui ) {
-			var networks = $(this).sortable('serialize');
+			var networks = jQuery(this).sortable('serialize');
 
 			var data = {
 				'action': 'networks_string',
