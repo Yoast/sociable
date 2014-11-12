@@ -1,9 +1,9 @@
-$(function() {
+jQuery(function() {
 
 	/**
 	 * Make active network box sortable and give it a placeholder. Copy the active networks to a hidden form to save this when form is submitted
 	 */
-	$( 'ul#sociable-admin-active-list').sortable({
+	jQuery( 'ul#sociable-admin-active-list').sortable({
 		connectWith: 'ul',
 		placeholder: 'network-placeholder',
 
@@ -17,7 +17,7 @@ $(function() {
 			};
 
 			jQuery.post( ajax_object.ajax_url, data, function( response ) {
-				$( '#yoast-sociable-form-hidden-settings-networks' ) .val( response );
+				jQuery( '#yoast-sociable-form-hidden-settings-networks' ) .val( response );
 			});
 		}
 	});
@@ -25,7 +25,7 @@ $(function() {
 	/**
 	 * Make inactive network box sortable and give it a placeholder.
 	 */
-	$( 'ul#sociable-admin-inactive-list').sortable({
+	jQuery( 'ul#sociable-admin-inactive-list').sortable({
 		connectWith: 'ul',
 		placeholder: 'network-placeholder'
 	});

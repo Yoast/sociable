@@ -190,10 +190,8 @@ if ( ! class_exists( 'Sociable_Admin' ) ) {
 		 * Add JavaScript files and Ajax call to admin head
 		 */
 		public function enqueue_scripts() {
-			wp_enqueue_script( 'yoast-sociable-admin-jquery', $this->plugin_url . 'admin/js/jquery-1.11.1.min.js' );
-			wp_enqueue_script( 'yoast_sociable_jquery-ui', $this->plugin_url . 'admin/js/jquery-ui.min.js' );
-			wp_enqueue_script( 'yoast_sociable_rrssb', $this->plugin_url . 'admin/js/rrssb.js' );
-			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js' );
+			wp_enqueue_script( 'yoast_sociable_rrssb', $this->plugin_url . 'admin/js/rrssb.js', array( 'jquery', 'jquery-ui-core', ) );
+			wp_enqueue_script( 'yoast-sociable-admin-sociable', $this->plugin_url . 'admin/js/sociable-admin.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', ) );
 			wp_localize_script( 'yoast-sociable-admin-sociable', 'ajax_object',
 				array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'active_networks' => '' ) );
 		}
